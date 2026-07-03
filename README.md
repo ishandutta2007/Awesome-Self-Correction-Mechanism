@@ -1,5 +1,10 @@
-# Awesome-Self-Correction-Mechanism
-## Self-Correction Mechanisms in AI: History, Progression, Variants, & Applications
+# Awesome-Self-Correction-Mechanism 🔄
+
+<p align="center">
+  <img src="./assets/banner.svg" alt="Self-Correction Mechanism Banner" width="100%">
+</p>
+
+## 🧠 Self-Correction Mechanisms in AI: History, Progression, Variants, & Applications
 
 A **Self-Correction Mechanism**—also referred to as automated error correction, runtime critique, or self-refinement loops—is an advanced cognitive and programmatic framework that enables artificial intelligence systems to independently identify, debug, and rectify errors within their own generated outputs. In traditional generative AI, models operate on a "single-pass feed-forward" loop, emitting tokens sequentially without the ability to pause, verify, or re-evaluate what they have written. If an error is introduced early in a generation pass, it cascades and corrupts the entire downstream reasoning tree. 
 
@@ -7,7 +12,7 @@ Self-correction mechanisms break this constraint by shifting AI execution from r
 
 ---
 
-## 1. The Macro Chronological Evolution
+## 📅 1. The Macro Chronological Evolution
 
 The implementation of error correction has transitioned from manual, multi-turn human steering to automated prompt-engineered critique templates, moving toward native reinforcement-learned reasoning chains and compiler-locked verification loops.
 
@@ -26,7 +31,7 @@ flowchart LR
 
 ---
 
-## 2. Core Functional & Algorithmic Correction Variants
+## ⚙️ 2. Core Functional & Algorithmic Correction Variants
 
 Self-correction mechanisms are strictly categorized based on the exact operational feedback loop used to identify an output error.
 
@@ -38,7 +43,7 @@ Self-correction mechanisms are strictly categorized based on the exact operation
 
 ---
 
-## 3. The Self-Correction Graph Layout
+## 📊 3. The Self-Correction Graph Layout
 
 To backtrack and recover from logical forks without hitting compute ceilings, the runtime engine structures token generation as a dynamic search tree [INDEX: 1].
 
@@ -64,7 +69,7 @@ flowchart TB
 
 ---
 
-## 4. Production Engineering Challenges & Mitigations
+## ⚠️ 4. Production Engineering Challenges & Mitigations
 
 Deploying continuous, iterative self-correction loops across enterprise serving infrastructures introduces severe memory and latency constraints [INDEX: 22].
 
@@ -75,7 +80,7 @@ Deploying continuous, iterative self-correction loops across enterprise serving 
 
 ---
 
-## 5. Frontier Real-World Enterprise Applications
+## 🚀 5. Frontier Real-World Enterprise Applications
 
 | Application | Description | Year First Used | Paper Citation / Link |
 | --- | --- | --- | --- |
@@ -85,7 +90,7 @@ Deploying continuous, iterative self-correction loops across enterprise serving 
 
 ---
 
-## References
+## 📚 References
 1. Madaan, A., et al. (2023). Self-refine: Iterative refinement with self-feedback. *Advances in Neural Information Processing Systems (NeurIPS)* [INDEX: 12].
 2. Shinn, N., et al. (2023). Reflexion: Language agents with systematic self-reflective learning loops. *arXiv preprint arXiv:2303.11366*.
 3. Gou, Z., et al. (2024). CRITIC: Large language models can self-correct with tool-augmented verifiers. *International Conference on Learning Representations (ICLR)*.

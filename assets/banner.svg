@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#070b19" />
+      <stop offset="100%" stop-color="#02050f" />
+    </linearGradient>
+
+    <!-- Neon Glow Line Gradients -->
+    <linearGradient id="primary-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+    <linearGradient id="secondary-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff007f" />
+      <stop offset="100%" stop-color="#7f00ff" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    /* CSS Animations */
+    @keyframes pulse {
+      0% { r: 6px; opacity: 0.4; }
+      50% { r: 12px; opacity: 0.9; }
+      100% { r: 6px; opacity: 0.4; }
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -80;
+      }
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes rotate-loop {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .pulse-node {
+      animation: pulse 3s infinite ease-in-out;
+    }
+    .flow-line {
+      stroke-dasharray: 20 10;
+      animation: dash 4s linear infinite;
+    }
+    .floating-group {
+      animation: float 6s infinite ease-in-out;
+    }
+    .spinning-gear {
+      transform-origin: 200px 200px;
+      animation: rotate-loop 20s linear infinite;
+    }
+    .spinning-gear-right {
+      transform-origin: 1000px 200px;
+      animation: rotate-loop 25s linear reverse infinite;
+    }
+    .title-text {
+      font-family: 'Outfit', 'Inter', 'Segoe UI', sans-serif;
+      font-weight: 800;
+      fill: #ffffff;
+      font-size: 46px;
+      letter-spacing: 2px;
+      text-shadow: 0 0 15px rgba(0,242,254,0.6);
+    }
+    .subtitle-text {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      fill: #a0aec0;
+      font-size: 18px;
+      letter-spacing: 4px;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bg-grad)" />
+
+  <!-- Animated Tech grid backgrounds -->
+  <g opacity="0.05">
+    <path d="M 0,50 L 1200,50 M 0,100 L 1200,100 M 0,150 L 1200,150 M 0,200 L 1200,200 M 0,250 L 1200,250 M 0,300 L 1200,300 M 0,350 L 1200,350" stroke="#ffffff" stroke-width="1" />
+    <path d="M 100,0 L 100,400 M 200,0 L 200,400 M 300,0 L 300,400 M 400,0 L 400,400 M 500,0 L 500,400 M 600,0 L 600,400 M 700,0 L 700,400 M 800,0 L 800,400 M 900,0 L 900,400 M 1000,0 L 1000,400 M 1100,0 L 1100,400" stroke="#ffffff" stroke-width="1" />
+  </g>
+
+  <!-- Spinning Gear Left (Abstract Self-Correction representation) -->
+  <g class="spinning-gear" opacity="0.2">
+    <circle cx="200" cy="200" r="120" stroke="url(#primary-glow)" stroke-width="2" fill="none" stroke-dasharray="10 40 30 20" />
+    <circle cx="200" cy="200" r="90" stroke="url(#secondary-glow)" stroke-width="1.5" fill="none" stroke-dasharray="5 15" />
+    <circle cx="200" cy="200" r="60" stroke="#ffffff" stroke-width="1" fill="none" stroke-dasharray="2 8" />
+  </g>
+
+  <!-- Spinning Gear Right -->
+  <g class="spinning-gear-right" opacity="0.15">
+    <circle cx="1000" cy="200" r="140" stroke="url(#secondary-glow)" stroke-width="2" fill="none" stroke-dasharray="20 30 10 40" />
+    <circle cx="1000" cy="200" r="110" stroke="url(#primary-glow)" stroke-width="1.5" fill="none" stroke-dasharray="4 12" />
+  </g>
+
+  <!-- Flowing loops (Self-Correction feedback loop visualization) -->
+  <g filter="url(#glow)">
+    <!-- Main Loop Line -->
+    <path d="M 150,200 Q 300,50 600,200 T 1050,200" fill="none" stroke="url(#primary-glow)" stroke-width="4" class="flow-line" />
+    <!-- Correction Backtrack Line -->
+    <path d="M 1050,200 Q 600,380 150,200" fill="none" stroke="url(#secondary-glow)" stroke-width="3" class="flow-line" style="animation-duration: 6s; stroke-dasharray: 15 15;" />
+  </g>
+
+  <!-- Nodes along the loop -->
+  <g>
+    <!-- Node 1 (Input/Draft) -->
+    <circle cx="150" cy="200" r="8" fill="#00f2fe" />
+    <circle cx="150" cy="200" r="14" stroke="#00f2fe" stroke-width="2" fill="none" class="pulse-node" />
+    
+    <!-- Node 2 (Evaluation) -->
+    <circle cx="600" cy="200" r="8" fill="#7f00ff" />
+    <circle cx="600" cy="200" r="14" stroke="#7f00ff" stroke-width="2" fill="none" class="pulse-node" style="animation-delay: 1s;" />
+
+    <!-- Node 3 (Output/Verification) -->
+    <circle cx="1050" cy="200" r="8" fill="#ff007f" />
+    <circle cx="1050" cy="200" r="14" stroke="#ff007f" stroke-width="2" fill="none" class="pulse-node" style="animation-delay: 2s;" />
+  </g>
+
+  <!-- Floating Text & Main Content Group -->
+  <g class="floating-group">
+    <!-- Title -->
+    <text x="600" y="190" text-anchor="middle" class="title-text">SELF-CORRECTION MECHANISMS</text>
+    <!-- Subtitle -->
+    <text x="600" y="235" text-anchor="middle" class="subtitle-text">SYSTEM 2 METRIC-DRIVEN COGNITIVE LOOPS</text>
+  </g>
+
+  <!-- Small details / tech markers -->
+  <text x="50" y="50" fill="#4facfe" opacity="0.5" font-family="monospace" font-size="12">STATUS: COMPILING_SELF_CORRECT_OK</text>
+  <text x="1150" y="370" text-anchor="end" fill="#ff007f" opacity="0.5" font-family="monospace" font-size="12">ITER_LOOP: 2026.07.03</text>
+</svg>
