@@ -115,6 +115,17 @@ To advance this documentation repository, infrastructure workspace, or post-trai
 * Generate a **comprehensive Markdown table** explicitly comparing Human-Steered Correction, Prompt-Based Critique wrappers (Self-Refine), PRM-Guided Attentions, and Native Reinforcement-Learned Self-Correction (o1/R1) across computational inference latencies, VRAM cache inflation parameters, requirements for external tools, and logical error tolerance [INDEX: 12, 18, 22].
 * Establish a **performance profiling notebook using Triton** to track the exact computational token-per-second throughput variations achieved when a model is allowed to run multi-step backtracking subroutines entirely within fast GPU SRAM register blocks [INDEX: 18].
 
+##  Star History
+<div align="center">
+<a href="https://www.star-history.com/?repos=ishandutta2007%2FAwesome-Self-Correction-Mechanism&type=date&legend=bottom-right">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Self-Correction-Mechanism&type=date&theme=dark&legend=bottom-right" />
+<source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Self-Correction-Mechanism&type=date&legend=bottom-right" />
+<img alt="Star History Chart" src="https://api.star-history.com/chart?repos=ishandutta2007/Awesome-Self-Correction-Mechanism&type=date&legend=bottom-right" />
+</picture>
+</a>
+</div>
+
 ***
 
 **Follow-Up Options Matrix:**
