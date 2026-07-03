@@ -32,16 +32,16 @@ The implementation of error correction has transitioned from manual, multi-turn 
 
 Self-correction mechanisms are strictly categorized based on the exact operational feedback loop used to identify an output error.
 
-### A. Intrinsic Self-Correction (Self-Critique / Logit Shift)
-*   **Mechanism:** Operates purely within the model's internal parameter weights without external software assistance. The model generates an initial answer draft, transitions into a critique persona inside its token stream, maps out anomalies, and emits a revised final version.
-*   **Pros:** Requires zero secondary tool infrastructure or sandbox orchestration [INDEX: 12].
-*   **Cons:** Highly vulnerable to the "confirmation bias trap," where the model blindly replicates its own internalized misconceptions.
+- ### A. Intrinsic Self-Correction (Self-Critique / Logit Shift)
+    *   **Mechanism:** Operates purely within the model's internal parameter weights without external software assistance. The model generates an initial answer draft, transitions into a critique persona inside its token stream, maps out anomalies, and emits a revised final version.
+    *   **Pros:** Requires zero secondary tool infrastructure or sandbox orchestration [INDEX: 12].
+    *   **Cons:** Highly vulnerable to the "confirmation bias trap," where the model blindly replicates its own internalized misconceptions.
 
-### B. Extrinsic Programmatic Self-Correction (Compiler-in-the-Loop)
-*   **Mechanism:** Hardcodes absolute, deterministic truth into the reinforcement learning and inference loop [INDEX: 17]. As the model reasons through a task, it writes an executable python script or formal math proof and dispatches it to a local sandboxed container or interactive theorem prover (ITP) [INDEX: 17, 21]. If the compiler crashes, the execution error and stack trace are fed directly back into the context window as a non-negotiable environment observation, forcing the model to allocate compute tokens specifically to fix the bug [INDEX: 1, 17].
+- ### B. Extrinsic Programmatic Self-Correction (Compiler-in-the-Loop)
+    *   **Mechanism:** Hardcodes absolute, deterministic truth into the reinforcement learning and inference loop [INDEX: 17]. As the model reasons through a task, it writes an executable python script or formal math proof and dispatches it to a local sandboxed container or interactive theorem prover (ITP) [INDEX: 17, 21]. If the compiler crashes, the execution error and stack trace are fed directly back into the context window as a non-negotiable environment observation, forcing the model to allocate compute tokens specifically to fix the bug [INDEX: 1, 17].
 
-### C. Reward-Model Guided Correction (PRM Steering)
-*   **Mechanism:** Interleaves a secondary **Process-Supervised Reward Model (PRM)** or step-level verifier directly into the generation pipeline [INDEX: 16]. The value network evaluates each discrete thinking milestone dynamically [INDEX: 16]. If an intermediate deduction step's reward score drops below a safe threshold, the inference engine halts the generation path, forcing the decoder to delete that token block and branch out into an alternative logic track [INDEX: 1].
+- ### C. Reward-Model Guided Correction (PRM Steering)
+    *   **Mechanism:** Interleaves a secondary **Process-Supervised Reward Model (PRM)** or step-level verifier directly into the generation pipeline [INDEX: 16]. The value network evaluates each discrete thinking milestone dynamically [INDEX: 16]. If an intermediate deduction step's reward score drops below a safe threshold, the inference engine halts the generation path, forcing the decoder to delete that token block and branch out into an alternative logic track [INDEX: 1].
 
 ---
 
