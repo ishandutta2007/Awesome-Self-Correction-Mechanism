@@ -12,9 +12,11 @@ Self-correction mechanisms break this constraint by shifting AI execution from r
 The implementation of error correction has transitioned from manual, multi-turn human steering to automated prompt-engineered critique templates, moving toward native reinforcement-learned reasoning chains and compiler-locked verification loops.
 
 ```mermaid
-[Human-in-the-Loop Steering] ───> [Prompt-Based Critique (Self-Refine, 2023)] ───> [Native Thinking Traces (o1/R1, 2024-Present)](Manual Multi-Turn User Refusal)       (Fragile Post-Hoc Prompt Formatting)           (Internalized RL-Learned Backtracking)
+flowchart LR
+    A["Human-in-the-Loop Steering<br/>(Manual Multi-Turn Guidance)"]
+    --> B["Prompt-Based Critique (Self-Refine, 2023)<br/>(Post-Hoc Self-Revision via Prompting)"]
+    --> C["Native Thinking Traces (o1/R1, 2024–Present)<br/>(RL-Learned Internal Search & Backtracking)"]
 ```
-
 
 *   **The Human-in-the-Loop Steering Era (Traditional Conversational LLMs, ~2022–2023)**
     *   *Concept:* The structural baseline. Models possessed absolute zero native self-correction capabilities in a single forward pass. Error correction occurred entirely across a multi-turn chat window: a human operator read the model's output, pinpointed a logical or programming bug manually, and typed a corrective prompt (e.g., `"No, line 14 has a syntax error, fix it"`), forcing the model to rewrite the script.
@@ -50,7 +52,18 @@ Self-correction mechanisms are strictly categorized based on the exact operation
 To backtrack and recover from logical forks without hitting compute ceilings, the runtime engine structures token generation as a dynamic search tree [INDEX: 1].
 
 ```mermaid
-Automated Compiler Self-Correction Loop[Input Programming Task] ───> [Generate Draft Script] ───> [Execute Sandbox Unit Tests]▲                              ││                      (Compilation Crashes)│                              ▼[Read Error Stack Trace] <─── [Feed Log back to Context Window]│▼ (Tests Pass perfectly)[Finalized Executable Code]
+flowchart TB
+    subgraph C["Automated Compiler Self-Correction Loop"]
+        A["Input Programming Task"]
+        --> B["Generate Draft Script"]
+        --> C1["Execute Sandbox Unit Tests"]
+
+        C1 -- "Compilation Errors / Test Failures" --> D["Read Error Stack Trace"]
+        D --> E["Feed Log Back to Context Window"]
+        E --> B
+
+        C1 -- "All Tests Pass" --> F["Finalized Executable Code"]
+    end
 ```
 
 *   **Token-Level Backtracking Vectors**
